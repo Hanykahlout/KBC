@@ -33,6 +33,7 @@ class LocationController:NSObject{
     private var isChecked = false
     public var currentLocation:CLLocationCoordinate2D?
     
+   
     
     // MARK: - Private Functions
     
@@ -56,7 +57,7 @@ class LocationController:NSObject{
     }
     
     // MARK: - Public Functions
-
+    
     func checkIfLocationServicesIsEnabled(){
         DispatchQueue.global(qos: .background).async {
             if CLLocationManager.locationServicesEnabled(){
@@ -69,12 +70,12 @@ class LocationController:NSObject{
             }
         }
     }
-
+    
     
     func requestLocation(){
         locationManager.requestWhenInUseAuthorization()
     }
-    
+   
 }
 
 // MARK: - Location Manager Delegate
@@ -85,10 +86,11 @@ extension LocationController:CLLocationManagerDelegate{
         currentLocation = location.coordinate
         self.delegate?.getCurrentLocation(currentLocation: currentLocation!)
         locationManager.stopUpdatingLocation()
+        AppData.saveCurrentLocation(location: location.coordinate)
     }
     
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         checkLocationAuthorization()
     }
 }
-  
+

@@ -9,10 +9,19 @@
 /* Begin PBXBuildFile section */
 		CE46F0B22CB6C1AC00207BA0 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = CE46F0B12CB6C1AC00207BA0 /* FirebaseMessaging */; };
 		CE46F0B82CB6C22D00207BA0 /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = CE46F0B72CB6C22D00207BA0 /* FirebaseCore */; };
+		CE46F0E72CB6D76300207BA0 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = CE46F0E62CB6D76300207BA0 /* Moya */; };
+		CE46F0E92CB6D79800207BA0 /* Network.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE46F0E82CB6D79800207BA0 /* Network.framework */; };
+		CE46F0EB2CB6D7C300207BA0 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE46F0EA2CB6D7C300207BA0 /* NetworkExtension.framework */; };
+		CE46F0ED2CB6D7EF00207BA0 /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = CE46F0EC2CB6D7EF00207BA0 /* CombineMoya */; };
+		CE46F0EF2CB6D80200207BA0 /* ReactiveMoya in Frameworks */ = {isa = PBXBuildFile; productRef = CE46F0EE2CB6D80200207BA0 /* ReactiveMoya */; };
+		CE46F0F12CB6D80200207BA0 /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = CE46F0F02CB6D80200207BA0 /* RxMoya */; };
+		CE46F0F72CB6D9AE00207BA0 /* ProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = CE46F0F62CB6D9AE00207BA0 /* ProgressHUD */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		CE46EFEB2CB693AF00207BA0 /* KBC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KBC.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE46F0E82CB6D79800207BA0 /* Network.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Network.framework; path = System/Library/Frameworks/Network.framework; sourceTree = SDKROOT; };
+		CE46F0EA2CB6D7C300207BA0 /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -41,8 +50,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE46F0EF2CB6D80200207BA0 /* ReactiveMoya in Frameworks */,
 				CE46F0B82CB6C22D00207BA0 /* FirebaseCore in Frameworks */,
 				CE46F0B22CB6C1AC00207BA0 /* FirebaseMessaging in Frameworks */,
+				CE46F0F72CB6D9AE00207BA0 /* ProgressHUD in Frameworks */,
+				CE46F0ED2CB6D7EF00207BA0 /* CombineMoya in Frameworks */,
+				CE46F0E72CB6D76300207BA0 /* Moya in Frameworks */,
+				CE46F0EB2CB6D7C300207BA0 /* NetworkExtension.framework in Frameworks */,
+				CE46F0F12CB6D80200207BA0 /* RxMoya in Frameworks */,
+				CE46F0E92CB6D79800207BA0 /* Network.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,6 +85,8 @@
 		CE46F0B02CB6C1AC00207BA0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CE46F0EA2CB6D7C300207BA0 /* NetworkExtension.framework */,
+				CE46F0E82CB6D79800207BA0 /* Network.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -95,6 +113,11 @@
 			packageProductDependencies = (
 				CE46F0B12CB6C1AC00207BA0 /* FirebaseMessaging */,
 				CE46F0B72CB6C22D00207BA0 /* FirebaseCore */,
+				CE46F0E62CB6D76300207BA0 /* Moya */,
+				CE46F0EC2CB6D7EF00207BA0 /* CombineMoya */,
+				CE46F0EE2CB6D80200207BA0 /* ReactiveMoya */,
+				CE46F0F02CB6D80200207BA0 /* RxMoya */,
+				CE46F0F62CB6D9AE00207BA0 /* ProgressHUD */,
 			);
 			productName = KBC;
 			productReference = CE46EFEB2CB693AF00207BA0 /* KBC.app */;
@@ -126,6 +149,8 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				CE46F0AF2CB6C16600207BA0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				CE46F0E52CB6D74800207BA0 /* XCRemoteSwiftPackageReference "Moya" */,
+				CE46F0F52CB6D9AE00207BA0 /* XCRemoteSwiftPackageReference "ProgressHUD" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = CE46EFEC2CB693AF00207BA0 /* Products */;
@@ -168,6 +193,7 @@
 				DEVELOPMENT_TEAM = NWPTRYJ9FL;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = KBC/Configurations/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Please we need your location to fetch the right data for you";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -196,6 +222,7 @@
 				DEVELOPMENT_TEAM = NWPTRYJ9FL;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = KBC/Configurations/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Please we need your location to fetch the right data for you";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -365,6 +392,22 @@
 				minimumVersion = 11.3.0;
 			};
 		};
+		CE46F0E52CB6D74800207BA0 /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 15.0.3;
+			};
+		};
+		CE46F0F52CB6D9AE00207BA0 /* XCRemoteSwiftPackageReference "ProgressHUD" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/relatedcode/ProgressHUD";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 14.1.3;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -377,6 +420,31 @@
 			isa = XCSwiftPackageProductDependency;
 			package = CE46F0AF2CB6C16600207BA0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseCore;
+		};
+		CE46F0E62CB6D76300207BA0 /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CE46F0E52CB6D74800207BA0 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
+		};
+		CE46F0EC2CB6D7EF00207BA0 /* CombineMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CE46F0E52CB6D74800207BA0 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = CombineMoya;
+		};
+		CE46F0EE2CB6D80200207BA0 /* ReactiveMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CE46F0E52CB6D74800207BA0 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = ReactiveMoya;
+		};
+		CE46F0F02CB6D80200207BA0 /* RxMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CE46F0E52CB6D74800207BA0 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = RxMoya;
+		};
+		CE46F0F62CB6D9AE00207BA0 /* ProgressHUD */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CE46F0F52CB6D9AE00207BA0 /* XCRemoteSwiftPackageReference "ProgressHUD" */;
+			productName = ProgressHUD;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
