@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		CE46F0B22CB6C1AC00207BA0 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = CE46F0B12CB6C1AC00207BA0 /* FirebaseMessaging */; };
+		CE46F0B82CB6C22D00207BA0 /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = CE46F0B72CB6C22D00207BA0 /* FirebaseCore */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		CE46EFEB2CB693AF00207BA0 /* KBC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KBC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -14,7 +19,7 @@
 		CE46EFFD2CB693B000207BA0 /* Exceptions for "KBC" folder in "KBC" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Info.plist,
+				Configurations/Info.plist,
 			);
 			target = CE46EFEA2CB693AF00207BA0 /* KBC */;
 		};
@@ -36,6 +41,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE46F0B82CB6C22D00207BA0 /* FirebaseCore in Frameworks */,
+				CE46F0B22CB6C1AC00207BA0 /* FirebaseMessaging in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,6 +53,7 @@
 			isa = PBXGroup;
 			children = (
 				CE46EFED2CB693AF00207BA0 /* KBC */,
+				CE46F0B02CB6C1AC00207BA0 /* Frameworks */,
 				CE46EFEC2CB693AF00207BA0 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -56,6 +64,13 @@
 				CE46EFEB2CB693AF00207BA0 /* KBC.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		CE46F0B02CB6C1AC00207BA0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -78,6 +93,8 @@
 			);
 			name = KBC;
 			packageProductDependencies = (
+				CE46F0B12CB6C1AC00207BA0 /* FirebaseMessaging */,
+				CE46F0B72CB6C22D00207BA0 /* FirebaseCore */,
 			);
 			productName = KBC;
 			productReference = CE46EFEB2CB693AF00207BA0 /* KBC.app */;
@@ -107,6 +124,9 @@
 			);
 			mainGroup = CE46EFE22CB693AF00207BA0;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				CE46F0AF2CB6C16600207BA0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = CE46EFEC2CB693AF00207BA0 /* Products */;
 			projectDirPath = "";
@@ -145,9 +165,9 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 7G5546WXMH;
+				DEVELOPMENT_TEAM = NWPTRYJ9FL;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = KBC/Info.plist;
+				INFOPLIST_FILE = KBC/Configurations/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -173,9 +193,9 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 7G5546WXMH;
+				DEVELOPMENT_TEAM = NWPTRYJ9FL;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = KBC/Info.plist;
+				INFOPLIST_FILE = KBC/Configurations/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -335,6 +355,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		CE46F0AF2CB6C16600207BA0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.3.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		CE46F0B12CB6C1AC00207BA0 /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CE46F0AF2CB6C16600207BA0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
+		};
+		CE46F0B72CB6C22D00207BA0 /* FirebaseCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CE46F0AF2CB6C16600207BA0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCore;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CE46EFE32CB693AF00207BA0 /* Project object */;
 }
