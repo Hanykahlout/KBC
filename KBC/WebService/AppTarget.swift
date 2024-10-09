@@ -70,7 +70,7 @@ enum AppTarget:TargetType{
             var locationController = LocationController()
             return ["accept":"application/json",
                     "Content-Type":"application/json",
-                    "deviceInfo":locationController.getDeviceInfoJSON()]
+                    "deviceInfo":AppData.getDeviceInfoJSON()]
         }
         
     }

@@ -64,6 +64,9 @@ struct AppData {
     @Storage(key: "recentVersion", defaultValue: "")
     static var recentVersion: String
     
+    @Storage(key: "fcmToken", defaultValue: "")
+    static var fcmToken: String
+    
     @Storage(key: "userHash", defaultValue: "")
     static var userHash: String
     
@@ -110,10 +113,6 @@ struct AppData {
         return UIDevice.current.identifierForVendor?.uuidString ?? ""
     }
     
-    static var fcmToken: String {
-        // FCM token should be retrieved from Firebase Messaging
-        return ""
-    }
     
     static  func saveCurrentLocation(location: CLLocationCoordinate2D) {
         

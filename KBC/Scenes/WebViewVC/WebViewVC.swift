@@ -9,7 +9,7 @@ class WebViewVC: UIViewController {
     // MARK: - Private Attributes
     
     private var webView: WKWebView!
-    private let locationController = LocationController()
+    
     private var url:String = "https://kbc02.com"
     
     
@@ -18,8 +18,7 @@ class WebViewVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpWebView()
-        locationController.delegate = self
-        locationController.checkIfLocationServicesIsEnabled()
+        
     }
     
     
@@ -65,6 +64,9 @@ extension WebViewVC:WKNavigationDelegate{}
 
 
 
-extension WebViewVC:LocationControllerDelegate{
-    
+
+// MARK: - Set Storybaord Name
+extension WebViewVC :Storyboarded{
+    static var storyboardName: StoryboardName = .main
 }
+

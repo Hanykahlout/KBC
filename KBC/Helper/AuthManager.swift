@@ -20,7 +20,7 @@ class AuthManager {
     
     func authenticateUser(completion: @escaping (Bool) -> Void) {
         
-        if let storedHash = UserDefaults.standard.string(forKey: "SharedPref.hash") {
+//        if let storedHash = UserDefaults.standard.string(forKey: "SharedPref.hash") {
             let context = LAContext()
             var error: NSError?
             
@@ -35,11 +35,11 @@ class AuthManager {
                 }
             } else {
                 // Fallback to password authentication
-                authenticateWithPassword(storedHash: storedHash, completion: completion)
+//                authenticateWithPassword(storedHash: storedHash, completion: completion)
             }
-        } else {
-            completion(true)
-        }
+//        } else {
+//            completion(true)
+//        }
         
     }
     
