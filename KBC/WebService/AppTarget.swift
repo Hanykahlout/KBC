@@ -10,20 +10,16 @@ import Moya
 
 enum AppTarget:TargetType{
     
+    case initiateAppIntroConnect
+    case fetchDomans(url:String)
     case initiateAppStateConnect(userHash:String)
-    case getAppIntro
-    case fetchDomans
-    
-    //    AppUrls.STG_KBC_main_domain +
-    //        AppUrls.url_app_domain +
-    //        AppUrls.agent_site_seq;
-    
     
     var baseURL: URL {
         switch self{
-            
+        case .fetchDomans(let url):
+            return URL(string:url)!
         default:
-            return URL(string: "\(AppConfig.STG_KBC_main_domain)")!
+            return URL(string: "\(AppConfig.tagUrlDomain)")!
         }
         
     }
@@ -31,9 +27,9 @@ enum AppTarget:TargetType{
     
     var path: String {
         switch self {
-        case .initiateAppStateConnect: "/app/user/state/check/xhr"
-        case .getAppIntro: "/app/intro"
-        case .fetchDomans: AppConfig.url_app_domain + AppConfig.agent_site_seq
+        case .initiateAppIntroConnect: AppConfig.url_app_intro
+        case .initiateAppStateConnect: AppConfig.url_app_status_check
+        default: ""
         }
     }
     
@@ -41,7 +37,7 @@ enum AppTarget:TargetType{
     var method: Moya.Method {
         switch self{
             
-        case .initiateAppStateConnect,.fetchDomans:
+        case.fetchDomans,.initiateAppStateConnect:
             return .post
         default:
             return .get
@@ -55,7 +51,7 @@ enum AppTarget:TargetType{
         switch self{
             
             
-        case .initiateAppStateConnect,.fetchDomans:
+        case .fetchDomans,.initiateAppStateConnect:
             
             return .requestParameters(parameters: param, encoding: URLEncoding.httpBody)
         default:
@@ -69,16 +65,14 @@ enum AppTarget:TargetType{
     var headers: [String : String]?{
         switch self{
             
-        case .initiateAppStateConnect:
-            return ["accept":"application/json",
-                    "Content-Type":"application/json"]
-        case .getAppIntro:
-            var locationController = LocationController()
+        case .initiateAppIntroConnect:
             return ["accept":"application/json",
                     "Content-Type":"application/json",
                     "deviceInfo":AppData.getDeviceInfoJSON()]
-        case .fetchDomans:
-            return ["Accept-Charset":"UTF-8"]
+        case .fetchDomans,.initiateAppStateConnect:
+            return ["Accept-Charset":"UTF-8",
+                    "Content-Type": "application/x-www-form-urlencoded"]
+            
         }
         
     }
@@ -87,10 +81,10 @@ enum AppTarget:TargetType{
     
     var param: [String : Any]{
         switch self {
-        case .initiateAppStateConnect(let userHash):
-            return ["user_hash":userHash]
         case .fetchDomans:
             return ["agent_site_seq_app":AppConfig.agent_site_seq]
+        case .initiateAppStateConnect(let userHash):
+            return ["user_hash":userHash]
         default:
             return [ : ]
         }

@@ -47,11 +47,6 @@ struct AppData {
     static var long: String
     
     
-    @Storage(key: "tagUrlDomain", defaultValue: "")
-    static var tagUrlDomain: String
-    
-    @Storage(key: "tagUrlHomeDomain", defaultValue: "")
-    static var tagUrlHomeDomain: String
     
     @Storage(key: "currentVersion", defaultValue: "")
     static var currentVersion: String

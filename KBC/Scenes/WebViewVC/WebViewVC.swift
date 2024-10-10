@@ -10,7 +10,7 @@ class WebViewVC: UIViewController {
     
     private var webView: WKWebView!
     
-    private var url:String = "https://kbc02.com"
+    var url:String = "https://kbc02.com"
     
     
     // MARK: - VC Life Cycle

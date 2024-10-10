@@ -59,6 +59,9 @@ struct AppConfig {
     static let KONE_appDownloadEndPoint = "/r/front/ipa/KONE.ipa"
     static let appDownloadMiddlePoint = "/app/version/check"
     
+    static var tagUrlDomain = ""
+    static var tagUrlHomeDomain = ""
+    
     
     
 }

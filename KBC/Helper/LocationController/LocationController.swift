@@ -14,6 +14,7 @@ protocol LocationControllerDelegate{
     func notDeterminedLocation()
     func getCurrentLocation(currentLocation:CLLocationCoordinate2D)
     func getCurrentLocationLabel(currentLocation:String)
+    func finishCheck()
 }
 
 extension LocationControllerDelegate{
@@ -32,21 +33,25 @@ class LocationController:NSObject{
     private var locationManager = CLLocationManager()
     private var isChecked = false
     public var currentLocation:CLLocationCoordinate2D?
+    private var isFinish = false
     
-   
     
     // MARK: - Private Functions
     
     private func checkLocationAuthorization(){
+        
         switch locationManager.authorizationStatus{
         case .notDetermined:
+            self.requestLocation()
             delegate?.notDeterminedLocation()
             
         case .restricted:
             // show message
+            delegate?.finishCheck()
             break
         case .denied:
             // show message
+            delegate?.finishCheck()
             break
         case .authorizedWhenInUse, .authorizedAlways:
             /// app is authorized
@@ -54,6 +59,7 @@ class LocationController:NSObject{
         default:
             break
         }
+        
     }
     
     // MARK: - Public Functions
@@ -75,7 +81,7 @@ class LocationController:NSObject{
     func requestLocation(){
         locationManager.requestWhenInUseAuthorization()
     }
-   
+    
 }
 
 // MARK: - Location Manager Delegate
@@ -87,6 +93,10 @@ extension LocationController:CLLocationManagerDelegate{
         self.delegate?.getCurrentLocation(currentLocation: currentLocation!)
         locationManager.stopUpdatingLocation()
         AppData.saveCurrentLocation(location: location.coordinate)
+        if isFinish == false{
+            delegate?.finishCheck()
+            isFinish = true
+        }
     }
     
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {

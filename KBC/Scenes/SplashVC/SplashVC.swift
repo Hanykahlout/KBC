@@ -23,10 +23,12 @@ class SplashVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         navigationController?.isNavigationBarHidden = true
         presenter.delegate = self
-        HUDManager.shared.animate()
+        
         presenter.fetchCurrentLocation()
+        
         
     }
     

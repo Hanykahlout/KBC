@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We need to fetch your locaiton to show the right results for you</string>
 	<key>NSFaceIDUsageDescription</key>
 	<string>We we need you ID to authorized you for the content in the app</string>
 	<key>NSAppTransportSecurity</key>
