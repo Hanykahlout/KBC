@@ -7,18 +7,50 @@
 
 import Foundation
 
-struct BaseResponse<T:Decodable>: Decodable{
+
+class BaseResponse: Decodable{
     
     let status: Bool?
     let code: Int?
     let message: String?
-    let data: T?
-
+    
+    
     enum CodingKeys: String, CodingKey {
-        case status
-        case code
-        case message
-        case data
+        
+        case  status, code ,message
     }
 }
 
+
+class BaseObjectResponse<T:Decodable>: BaseResponse{
+    
+    let data: T?
+    
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        data = try container.decodeIfPresent(T.self, forKey: .data)
+        try super.init(from: decoder)
+    }
+    
+    enum CodingKeys: String, CodingKey {
+        case data
+    }
+    
+}
+
+
+
+class BaseArrayResponse<T:Decodable>: BaseResponse{
+    
+    let data: [T]?
+    
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        data = try container.decodeIfPresent([T].self, forKey: .data)
+        try super.init(from: decoder)
+    }
+    
+    enum CodingKeys: String, CodingKey {
+        case data
+    }
+}

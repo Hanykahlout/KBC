@@ -23,11 +23,11 @@ extension LocationControllerDelegate{
 }
 
 
-typealias LocationControllerVCDelegate = LocationControllerDelegate & UIViewController
+typealias LocationControllerVCDelegate = LocationControllerDelegate
 
 class LocationController:NSObject{
     
-    weak var delegate:LocationControllerVCDelegate?
+    var delegate:LocationControllerVCDelegate?
     
     private var locationManager = CLLocationManager()
     private var isChecked = false

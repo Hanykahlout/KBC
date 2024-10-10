@@ -12,13 +12,15 @@ import Alamofire
 
 protocol AppNetworkable:Networkable  {
     
-    func initiateAppStateConnect(userHash:String,completion: @escaping (Result<BaseResponse<DataResponse>, Error>)-> ())
-    func getAppIntro(completion: @escaping (Result<BaseResponse<DataResponse>, Error>)-> ())
-    
+    func initiateAppStateConnect(userHash:String,completion: @escaping (Result<BaseObjectResponse<DataResponse>, Error>)-> ())
+    func getAppIntro(completion: @escaping (Result<BaseObjectResponse<DataResponse>, Error>)-> ())
+    func fetchDomans(completion: @escaping (Result<BaseResponse, Error>)-> ())
+
 }
 
 
 class AppManager: AppNetworkable {
+
     
     
     typealias targetType = AppTarget
@@ -31,13 +33,16 @@ class AppManager: AppNetworkable {
     }()
     
     
-    func initiateAppStateConnect(userHash: String, completion: @escaping (Result<BaseResponse<DataResponse>, Error>) -> ()) {
+    func initiateAppStateConnect(userHash: String, completion: @escaping (Result<BaseObjectResponse<DataResponse>, Error>) -> ()) {
         request(target: .initiateAppStateConnect(userHash: userHash), completion: completion)
     }
     
-    func getAppIntro(completion: @escaping (Result<BaseResponse<DataResponse>, any Error>) -> ()) {
+    func getAppIntro(completion: @escaping (Result<BaseObjectResponse<DataResponse>, any Error>) -> ()) {
         request(target: .getAppIntro, completion: completion)
     }
     
+    func fetchDomans(completion: @escaping (Result<BaseResponse, any Error>) -> ()) {
+        request(target: .fetchDomans, completion: completion)
+    }
     
 }

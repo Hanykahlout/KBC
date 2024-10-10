@@ -37,6 +37,55 @@ struct Storage<T> {
 
 struct AppData {
     
+    @Storage(key: "vipUrl", defaultValue: "")
+    static var vipUrl: String
+    
+    @Storage(key: "lat", defaultValue: "")
+    static var lat: String
+    
+    @Storage(key: "long", defaultValue: "")
+    static var long: String
+    
+    
+    @Storage(key: "tagUrlDomain", defaultValue: "")
+    static var tagUrlDomain: String
+    
+    @Storage(key: "tagUrlHomeDomain", defaultValue: "")
+    static var tagUrlHomeDomain: String
+    
+    @Storage(key: "currentVersion", defaultValue: "")
+    static var currentVersion: String
+    
+    @Storage(key: "isRememberMePwa", defaultValue: false)
+    static var isRememberMePwa: Bool
+    
+    @Storage(key: "userHash", defaultValue: "")
+    static var userHash: String
+    
+    @Storage(key: "isBiometricSet", defaultValue: false)
+    static var isBiometricSet: Bool
+    
+    @Storage(key: "isDeviceLoginBio", defaultValue: "")
+    static var isDeviceLoginBio: String
+    
+    @Storage(key: "isLoginRememberMe", defaultValue: "")
+    static var isLoginRememberMe: String
+    
+    @Storage(key: "isLoginBiometric", defaultValue: "")
+    static var isLoginBiometric: String
+    
+    @Storage(key: "methodName", defaultValue: "")
+    static var methodName: String
+    
+    @Storage(key: "userHash2", defaultValue: "")
+    static var userHash2: String
+    
+    @Storage(key: "isFirstInstall", defaultValue: false)
+    static var isFirstInstall: Bool
+    
+    
+    
+    
     @Storage(key: "token", defaultValue: "")
     static var token: String
     
@@ -58,20 +107,13 @@ struct AppData {
     @Storage(key: "notificationUrl", defaultValue: "")
     static var notificationUrl: String
     
-    @Storage(key: "currentVersion", defaultValue: "")
-    static var currentVersion: String
     
     @Storage(key: "recentVersion", defaultValue: "")
     static var recentVersion: String
     
     @Storage(key: "fcmToken", defaultValue: "")
     static var fcmToken: String
-    
-    @Storage(key: "userHash", defaultValue: "")
-    static var userHash: String
-    
-    @Storage(key: "vipUrl", defaultValue: "")
-    static var vipUrl: String
+
     
     @Storage(key: "isBioLogin", defaultValue: false)
     static var isBioLogin: Bool
